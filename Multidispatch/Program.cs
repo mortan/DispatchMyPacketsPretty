@@ -12,7 +12,9 @@ namespace Sample.Multidispatch
         private void Run()
         {
             OnPacketReceived(new LoginPacket());
-            OnPacketReceived(new MessagePacket());
+
+            // -> Runtime Exception
+            //OnPacketReceived(new MessagePacket());
         }
 
         private void OnPacketReceived(ServerPacketBase packet)
@@ -25,9 +27,10 @@ namespace Sample.Multidispatch
             Console.WriteLine("HandlePacket(LoginPacket packet): " + packet.GetType());
         }
 
+        /*
         public void HandlePacket(MessagePacket packet)
         {
             Console.WriteLine("HandlePacket(MessagePacket packet): " + packet.GetType());
-        }
+        }*/
     }
 }
